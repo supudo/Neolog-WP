@@ -126,4 +126,7 @@
   <data name="loading" xml:space="preserve">
     <value>Зареждане...</value>
   </data>
+  <data name="menu_About" xml:space="preserve">
+    <value>За Neolog</value>
+  </data>
 </root>

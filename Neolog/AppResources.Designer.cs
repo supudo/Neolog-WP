@@ -86,5 +86,14 @@ namespace Neolog {
                 return ResourceManager.GetString("loading", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to За Neolog.
+        /// </summary>
+        public static string menu_About {
+            get {
+                return ResourceManager.GetString("menu_About", resourceCulture);
+            }
+        }
     }
 }

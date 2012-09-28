@@ -96,9 +96,13 @@
     <Compile Include="Sync\Synchronization.cs" />
     <Compile Include="Utilities\Converters\OfferDateLongConverter.cs" />
     <Compile Include="Utilities\Converters\OfferDateShortConverter.cs" />
+    <Compile Include="Utilities\Extensions\RichTextBoxExtensions.cs" />
     <Compile Include="Utilities\NeologBasePage.cs" />
     <Compile Include="Utilities\NeologEventArgs.cs" />
     <Compile Include="Utilities\Network\NetworkHelper.cs" />
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -110,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,7 +141,6 @@
   <ItemGroup>
     <Folder Include="Database\Models\" />
     <Folder Include="Images\Menu\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppResources.resx">
