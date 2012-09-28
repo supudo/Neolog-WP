@@ -95,5 +95,32 @@ namespace Neolog {
                 return ResourceManager.GetString("menu_About", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изпрати дума.
+        /// </summary>
+        public static string menu_Post {
+            get {
+                return ResourceManager.GetString("menu_Post", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Настройки.
+        /// </summary>
+        public static string menu_Settings {
+            get {
+                return ResourceManager.GetString("menu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Думи.
+        /// </summary>
+        public static string menu_Words {
+            get {
+                return ResourceManager.GetString("menu_Words", resourceCulture);
+            }
+        }
     }
 }
