@@ -7,6 +7,8 @@
 
     <!--Application Resources-->
     <Application.Resources>
+        <nl:OfferDateShortConverter xmlns:nl="clr-namespace:Neolog.Utilities.Converters" x:Key="OfferDateShortConverter" />
+        <nl:OfferDateLongConverter xmlns:nl="clr-namespace:Neolog.Utilities.Converters" x:Key="OfferDateLongConverter" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

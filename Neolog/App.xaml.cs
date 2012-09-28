@@ -12,11 +12,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Neolog.Database.ViewModel;
 
 namespace Neolog
 {
     public partial class App : Application
     {
+        // The static ViewModel, to be used across the application.
+        private static NeologViewModel dbViewModel;
+        public static NeologViewModel DbViewModel
+        {
+            get { return dbViewModel; }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -56,6 +64,18 @@ namespace Neolog
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+
+            // Init App Settings
+            var s = AppSettings.Instance;
+
+            // Initial Database setup
+            using (Neolog.Database.Context.NeologDataContext db = new Neolog.Database.Context.NeologDataContext(AppSettings.DBConnectionString))
+            {
+                if (db.DatabaseExists() == false)
+                    db.CreateDatabase();
+            }
+            dbViewModel = new NeologViewModel(AppSettings.DBConnectionString);
+            dbViewModel.InitObservables();
 
         }
 

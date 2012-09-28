@@ -9,16 +9,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using Microsoft.Phone.Controls;
+using System.Threading;
+using System.ComponentModel;
+using Neolog.Utilities;
 
 namespace Neolog
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : NeologBasePage
     {
-        // Constructor
         public MainPage()
         {
             InitializeComponent();
+            base.SyncComplete += new NeologBasePage.EventHandler(MainPage_SyncComplete);
+            base.DoSync();
+        }
+
+        void MainPage_SyncComplete(object sender, NeologEventArgs e)
+        {
+            base.BuildApplicationBar();
+            NavigationService.Navigate(new Uri("/Views/Nests.xaml", UriKind.Relative));
         }
     }
 }
