@@ -1,5 +1,5 @@
-﻿<nl:NeologBasePage 
-    x:Class="Neolog.Views.Settings"
+﻿<nl:NeologBasePage
+    x:Class="Neolog.Views.Words"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -23,30 +23,23 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="pageTitle" Text="Nests" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="White" FontSize="64"/>
+            <TextBlock x:Name="pageTitle" Text="Words" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="White" FontSize="64"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-                <CheckBox Content="Private Data" Name="chkPrivateData" Foreground="White" />
-            </StackPanel>
-        </Grid>
+        <ScrollViewer Grid.Row="1">
+            <Grid x:Name="ContentPanel" Margin="12,0,12,0">
+                <ListBox Name="wordsList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="Words_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding Path=WordContent}" FontSize="24" TextWrapping="Wrap" Margin="12,20,0,0" Foreground="White" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </ScrollViewer>
     </Grid>
-
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton 
-                x:Name="btnOK" 
-                IconUri="images/menu/tb-forms-ok.png" 
-                Text="ok" 
-                Click="btnOK_Click"/>
-            <shell:ApplicationBarIconButton 
-                x:Name="btnCancel" 
-                IconUri="/images/menu/tb-forms-cancel.png" 
-                Text="cancel" 
-                Click="btnCancel_Click"/>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
 
 </nl:NeologBasePage>

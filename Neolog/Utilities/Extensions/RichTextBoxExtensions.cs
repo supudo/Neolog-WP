@@ -22,9 +22,7 @@ namespace Neolog.Utilities.Extensions
             htmlFragment = cleanHTML(htmlFragment);
 
             var regEx = new Regex(@"\<a\s(href\=""|[^\>]+?\shref\="")(?<link>[^""]+)"".*?\>(?<text>.*?)(\<\/a\>|$)", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-
             richTextBox.Blocks.Clear();
-
             int nextOffset = 0;
             foreach (Match match in regEx.Matches(htmlFragment))
             {
@@ -34,7 +32,6 @@ namespace Neolog.Utilities.Extensions
                     nextOffset = match.Index + match.Length;
                     richTextBox.AppendLink(match.Groups["text"].Value, new Uri(match.Groups["link"].Value));
                 }
-
                 AppSettings.LogThis(match.Groups["text"] + ":" + match.Groups["link"]);
             }
 

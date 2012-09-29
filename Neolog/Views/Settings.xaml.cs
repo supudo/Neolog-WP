@@ -11,7 +11,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Neolog.Utilities;
-using Neolog.Utilities.Extensions;
 
 namespace Neolog.Views
 {
@@ -27,7 +26,26 @@ namespace Neolog.Views
 
         void Settings_Loaded(object sender, RoutedEventArgs e)
         {
-            base.BuildApplicationBar();
+            this.chkPrivateData.Content = AppResources.conf_PrivateData;
+            this.chkPrivateData.IsChecked = AppSettings.ConfPrivateData;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            AppSettings.ConfPrivateData = (bool)this.chkPrivateData.IsChecked;
+
+            if (!AppSettings.ConfPrivateData)
+            {
+                AppSettings.ConfPDEmail = "";
+                AppSettings.ConfPDName = "";
+            }
+
+            NavigationService.GoBack();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

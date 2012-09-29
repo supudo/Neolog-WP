@@ -120,6 +120,9 @@
   <data name="appName" xml:space="preserve">
     <value>Neolog</value>
   </data>
+  <data name="conf_PrivateData" xml:space="preserve">
+    <value>Запази лични данни</value>
+  </data>
   <data name="error_NoInternet" xml:space="preserve">
     <value>В момента няма интернет връзка. Опитайте по-късно пак.</value>
   </data>
@@ -143,5 +146,35 @@
   </data>
   <data name="menu_Words" xml:space="preserve">
     <value>Думи</value>
+  </data>
+  <data name="missingFields" xml:space="preserve">
+    <value>Има нещо изпуснато...</value>
+  </data>
+  <data name="send_Description" xml:space="preserve">
+    <value>Какво значи:</value>
+  </data>
+  <data name="send_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="send_Ethimology" xml:space="preserve">
+    <value>Етимология (произход):</value>
+  </data>
+  <data name="send_Example" xml:space="preserve">
+    <value>Примери:</value>
+  </data>
+  <data name="send_Name" xml:space="preserve">
+    <value>Име/псевдоним:</value>
+  </data>
+  <data name="send_Nest" xml:space="preserve">
+    <value>Гнездо:</value>
+  </data>
+  <data name="send_URL" xml:space="preserve">
+    <value>Вашият сайт:</value>
+  </data>
+  <data name="send_Word" xml:space="preserve">
+    <value>Думата:</value>
+  </data>
+  <data name="thankYou" xml:space="preserve">
+    <value>Благодарим ви!</value>
   </data>
 </root>

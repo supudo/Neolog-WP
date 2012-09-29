@@ -168,9 +168,15 @@ namespace Neolog
         #endregion
 
         #region Settings
-        const string ConfNameOnlineSearch = "ConfNameOnlineSearch";
+        const string ConfNamePrivateData = "ConfNamePrivateData";
+        const string ConfNamePDEmail = "ConfNamePDEmail";
+        const string ConfNamePDName = "ConfNamePDName";
+        const string ConfNamePDURL = "ConfNamePDURL";
 
-        const bool ConfDefaultOnlineSearch = true;
+        const bool ConfDefaultPrivateData = true;
+        const string ConfDefaultPDEmail = "";
+        const string ConfDefaultPDName = "";
+        const string ConfDefaultPDURL = "";
 
         public static bool AddOrUpdateValue(string Key, Object value)
         {
@@ -206,15 +212,54 @@ namespace Neolog
             isolatedStore.Save();
         }
 
-        public static bool ConfOnlineSearch
+        public static bool ConfPrivateData
         {
             get
             {
-                return GetValueOrDefault<bool>(ConfNameOnlineSearch, ConfDefaultOnlineSearch);
+                return GetValueOrDefault<bool>(ConfNamePrivateData, ConfDefaultPrivateData);
             }
             set
             {
-                AddOrUpdateValue(ConfNameOnlineSearch, value);
+                AddOrUpdateValue(ConfNamePrivateData, value);
+                Save();
+            }
+        }
+
+        public static string ConfPDEmail
+        {
+            get
+            {
+                return GetValueOrDefault<string>(ConfNamePDEmail, ConfDefaultPDEmail);
+            }
+            set
+            {
+                AddOrUpdateValue(ConfNamePDEmail, value);
+                Save();
+            }
+        }
+
+        public static string ConfPDName
+        {
+            get
+            {
+                return GetValueOrDefault<string>(ConfNamePDName, ConfDefaultPDName);
+            }
+            set
+            {
+                AddOrUpdateValue(ConfNamePDName, value);
+                Save();
+            }
+        }
+
+        public static string ConfPDURL
+        {
+            get
+            {
+                return GetValueOrDefault<string>(ConfNamePDURL, ConfDefaultPDURL);
+            }
+            set
+            {
+                AddOrUpdateValue(ConfNamePDURL, value);
                 Save();
             }
         }

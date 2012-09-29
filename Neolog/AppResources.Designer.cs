@@ -70,6 +70,15 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Запази лични данни.
+        /// </summary>
+        public static string conf_PrivateData {
+            get {
+                return ResourceManager.GetString("conf_PrivateData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to В момента няма интернет връзка. Опитайте по-късно пак..
         /// </summary>
         public static string error_NoInternet {
@@ -138,6 +147,96 @@ namespace Neolog {
         public static string menu_Words {
             get {
                 return ResourceManager.GetString("menu_Words", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Има нещо изпуснато....
+        /// </summary>
+        public static string missingFields {
+            get {
+                return ResourceManager.GetString("missingFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Какво значи:.
+        /// </summary>
+        public static string send_Description {
+            get {
+                return ResourceManager.GetString("send_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        public static string send_Email {
+            get {
+                return ResourceManager.GetString("send_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Етимология (произход):.
+        /// </summary>
+        public static string send_Ethimology {
+            get {
+                return ResourceManager.GetString("send_Ethimology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Примери:.
+        /// </summary>
+        public static string send_Example {
+            get {
+                return ResourceManager.GetString("send_Example", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име/псевдоним:.
+        /// </summary>
+        public static string send_Name {
+            get {
+                return ResourceManager.GetString("send_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Гнездо:.
+        /// </summary>
+        public static string send_Nest {
+            get {
+                return ResourceManager.GetString("send_Nest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вашият сайт:.
+        /// </summary>
+        public static string send_URL {
+            get {
+                return ResourceManager.GetString("send_URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Думата:.
+        /// </summary>
+        public static string send_Word {
+            get {
+                return ResourceManager.GetString("send_Word", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Благодарим ви!.
+        /// </summary>
+        public static string thankYou {
+            get {
+                return ResourceManager.GetString("thankYou", resourceCulture);
             }
         }
     }

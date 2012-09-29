@@ -26,7 +26,8 @@ namespace Neolog.Sync
         enum ServiceOp
         {
             ServiceOpTexts,
-            ServiceOpNests
+            ServiceOpNests,
+            ServiceOpSendWord
         }
 
         BackgroundWorker bgWorker;
@@ -59,6 +60,11 @@ namespace Neolog.Sync
         #endregion
 
         #region Public
+        public void DoSendWord(Dictionary<string, string> postParams)
+        {
+            this.currentOp = ServiceOp.ServiceOpSendWord;
+            this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendWord", postParams);
+        }
         #endregion
 
         #region Handle URLs

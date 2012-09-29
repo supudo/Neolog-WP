@@ -11,7 +11,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Neolog.Utilities;
-using Neolog.Utilities.Extensions;
 
 namespace Neolog.Views
 {
@@ -35,9 +34,8 @@ namespace Neolog.Views
         {
             if (this.nestsList.SelectedIndex == -1)
                 return;
-            //int oid = ((BombaJob.Database.Tables.JobOffers)e.AddedItems[0]).OfferId;
-            //bool humanYn = ((BombaJob.Database.Tables.JobOffers)e.AddedItems[0]).HumanYn;
-            //NavigationService.Navigate(new Uri("/Views/OfferDetails.xaml?oid=" + oid + "&h=" + humanYn, UriKind.Relative));
+            int nid = ((Neolog.Database.Models.Nest)e.AddedItems[0]).NestId;
+            NavigationService.Navigate(new Uri("/Views/Words.xaml?nid=" + nid, UriKind.Relative));
             this.nestsList.SelectedIndex = -1;
         }
     }
