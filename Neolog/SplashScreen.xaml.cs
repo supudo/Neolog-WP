@@ -25,7 +25,8 @@ namespace Neolog
         public SplashScreen()
         {
             InitializeComponent();
-            txtLoading.Text = AppResources.loading;
+            this.txtLoading.Text = AppResources.loading;
+            this.LayoutRoot.Background = new SolidColorBrush(AppSettings.BackgroundColor);
 
             if (this.syncManager == null)
                 this.syncManager = new Synchronization();

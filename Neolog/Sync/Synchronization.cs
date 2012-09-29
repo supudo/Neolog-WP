@@ -25,7 +25,8 @@ namespace Neolog.Sync
         private ServiceOp currentOp;
         enum ServiceOp
         {
-            ServiceOpTexts
+            ServiceOpTexts,
+            ServiceOpNests
         }
 
         BackgroundWorker bgWorker;
@@ -47,6 +48,9 @@ namespace Neolog.Sync
                 case ServiceOp.ServiceOpTexts:
                     this.doTexts(xmlContent);
                     break;
+                case ServiceOp.ServiceOpNests:
+                    this.doNests(xmlContent);
+                    break;
                 default:
                     SyncComplete(this, new NeologEventArgs(false, "", ""));
                     break;
@@ -61,8 +65,13 @@ namespace Neolog.Sync
         private void syncTexts()
         {
             this.currentOp = ServiceOp.ServiceOpTexts;
-            this._networkHelper.InBackground = false;
-            this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=getTextContent");
+            this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=GetContent");
+        }
+
+        private void syncNests()
+        {
+            this.currentOp = ServiceOp.ServiceOpNests;
+            this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=GetNests");
         }
         #endregion
 
@@ -99,17 +108,35 @@ namespace Neolog.Sync
         private void doTexts(string xmlContent)
         {
             XDocument doc = XDocument.Parse(xmlContent);
-            var texts = from txt in doc.Descendants("tctxt")
-                        select new Texts
-                        {
-                            TextId = int.Parse(txt.Attribute("id").Value),
-                            Title = txt.Element("tctitle").Value,
-                            Content = txt.Element("tccontent").Value,
-                        };
+            var ents = from ent in doc.Descendants("cnabout")
+                       select new Texts
+                       {
+                           TextId = int.Parse(ent.Attribute("id").Value),
+                           Title = "...", // seriously?!?!
+                           Content = ent.Value
+                       };
             using (NeologDataContext db = new NeologDataContext(AppSettings.DBConnectionString))
             {
-                foreach (Texts t in texts)
+                foreach (Texts t in ents)
                     App.DbViewModel.AddText(t);
+            }
+            this.syncNests();
+        }
+
+        private void doNests(string xmlContent)
+        {
+            XDocument doc = XDocument.Parse(xmlContent);
+            var ents = from ent in doc.Descendants("nest")
+                       select new Nests
+                       {
+                           NestId = int.Parse(ent.Attribute("id").Value),
+                           OrderPos = int.Parse(ent.Attribute("ord").Value),
+                           Title = ent.Element("nn").Value,
+                       };
+            using (NeologDataContext db = new NeologDataContext(AppSettings.DBConnectionString))
+            {
+                foreach (Nests t in ents)
+                    App.DbViewModel.AddNest(t);
             }
             this.SynchronizationComplete();
         }

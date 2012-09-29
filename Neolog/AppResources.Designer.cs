@@ -97,11 +97,29 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Гнезда.
+        /// </summary>
+        public static string menu_Nests {
+            get {
+                return ResourceManager.GetString("menu_Nests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Изпрати дума.
         /// </summary>
         public static string menu_Post {
             get {
                 return ResourceManager.GetString("menu_Post", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изпрати.
+        /// </summary>
+        public static string menu_Send {
+            get {
+                return ResourceManager.GetString("menu_Send", resourceCulture);
             }
         }
         

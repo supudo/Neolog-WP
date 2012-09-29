@@ -78,26 +78,45 @@ namespace Neolog.Utilities
         {
             this.ApplicationBar = new ApplicationBar();
 
-            /*
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-newest.png", UriKind.Relative));
-            appBarButton.Text = AppResources.menu_Newest;
-            appBarButton.Click += new System.EventHandler(menuNewest_Click);
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-words.png", UriKind.Relative));
+            appBarButton.Text = AppResources.menu_Words;
+            appBarButton.Click += new System.EventHandler(menuWords_Click);
             this.ApplicationBar.Buttons.Add(appBarButton);
 
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.menu_Post);
-            appBarMenuItem.Click += new System.EventHandler(menuPost_Click);
-            this.ApplicationBar.MenuItems.Add(appBarMenuItem);
-             * */
+            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-send.png", UriKind.Relative));
+            appBarButton.Text = AppResources.menu_Send;
+            appBarButton.Click += new System.EventHandler(menuSend_Click);
+            this.ApplicationBar.Buttons.Add(appBarButton);
+
+            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-settings.png", UriKind.Relative));
+            appBarButton.Text = AppResources.menu_Settings;
+            appBarButton.Click += new System.EventHandler(menuSettings_Click);
+            this.ApplicationBar.Buttons.Add(appBarButton);
+
+            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-about.png", UriKind.Relative));
+            appBarButton.Text = AppResources.appName;
+            appBarButton.Click += new System.EventHandler(menuAbout_Click);
+            this.ApplicationBar.Buttons.Add(appBarButton);
         }
 
-        void menuNewest_Click(object sender, EventArgs e)
+        void menuWords_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/Newest.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/Nests.xaml", UriKind.Relative));
         }
 
-        void menuPost_Click(object sender, EventArgs e)
+        void menuSend_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/Post.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/SendWord.xaml", UriKind.Relative));
+        }
+
+        void menuSettings_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/Settings.xaml", UriKind.Relative));
+        }
+
+        void menuAbout_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/About.xaml", UriKind.Relative));
         }
     }
 }

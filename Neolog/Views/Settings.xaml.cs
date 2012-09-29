@@ -9,26 +9,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Threading;
-using System.ComponentModel;
+using Microsoft.Phone.Controls;
 using Neolog.Utilities;
+using Neolog.Utilities.Extensions;
 
-namespace Neolog
+namespace Neolog.Views
 {
-    public partial class MainPage : NeologBasePage
+    public partial class Settings : NeologBasePage
     {
-        public MainPage()
+        public Settings()
         {
             InitializeComponent();
             this.LayoutRoot.Background = new SolidColorBrush(AppSettings.BackgroundColor);
-            base.SyncComplete += new NeologBasePage.EventHandler(MainPage_SyncComplete);
-            base.DoSync();
+            this.pageTitle.Text = AppResources.menu_Settings;
+            this.Loaded += new RoutedEventHandler(Settings_Loaded);
         }
 
-        void MainPage_SyncComplete(object sender, NeologEventArgs e)
+        void Settings_Loaded(object sender, RoutedEventArgs e)
         {
             base.BuildApplicationBar();
-            NavigationService.Navigate(new Uri("/Views/Nests.xaml", UriKind.Relative));
         }
     }
 }

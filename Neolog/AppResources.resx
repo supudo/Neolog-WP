@@ -129,8 +129,14 @@
   <data name="menu_About" xml:space="preserve">
     <value>За Neolog</value>
   </data>
+  <data name="menu_Nests" xml:space="preserve">
+    <value>Гнезда</value>
+  </data>
   <data name="menu_Post" xml:space="preserve">
     <value>Изпрати дума</value>
+  </data>
+  <data name="menu_Send" xml:space="preserve">
+    <value>Изпрати</value>
   </data>
   <data name="menu_Settings" xml:space="preserve">
     <value>Настройки</value>

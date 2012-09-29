@@ -59,6 +59,8 @@ namespace Neolog
         public static bool InDebug = true;
 
         public static string DateTimeFormat = "dd-MM-yyyy HH:mm:ss";
+        //public static string BackgroundColor = "#FF29435E";
+        public static Color BackgroundColor = Color.FromArgb(255, 41, 67, 94);
 
         public static string[] CyrillicLetters = new string[] {"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ю", "Я"};
 

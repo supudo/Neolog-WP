@@ -20,6 +20,7 @@ namespace Neolog.Views
         public About()
         {
             InitializeComponent();
+            this.LayoutRoot.Background = new SolidColorBrush(AppSettings.BackgroundColor);
             this.pageTitle.Text = AppResources.menu_About;
             this.Loaded += new RoutedEventHandler(About_Loaded);
         }
@@ -27,7 +28,7 @@ namespace Neolog.Views
         void About_Loaded(object sender, RoutedEventArgs e)
         {
             base.BuildApplicationBar();
-            string content = AppSettings.Hyperlinkify(App.DbViewModel.GetTextContent(35));
+            string content = AppSettings.Hyperlinkify(App.DbViewModel.GetTextContent(2));
             content = content.Replace("<br />", "");
             RichTextBoxExtensions.SetLinkedText(this.rtbAbout, content);
         }

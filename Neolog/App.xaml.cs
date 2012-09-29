@@ -76,7 +76,6 @@ namespace Neolog
             }
             dbViewModel = new NeologViewModel(AppSettings.DBConnectionString);
             dbViewModel.InitObservables();
-
         }
 
         // Code to execute when the application is launching (eg, from Start)

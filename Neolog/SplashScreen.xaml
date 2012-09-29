@@ -9,10 +9,10 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="800" d:DesignWidth="480">
 
-    <Grid x:Name="LayoutRoot" Width="480" Height="800" Background="White">
+    <Grid x:Name="LayoutRoot" Width="480" Height="800">
         <ProgressBar HorizontalAlignment="Left" Margin="47,692,0,89" Name="progressBar" Width="383" IsIndeterminate="True" />
-        <Image Height="200" HorizontalAlignment="Center" Margin="0,100,0,0" Name="imgLogo" Stretch="Fill" VerticalAlignment="Top" Width="200" DataContext="{Binding}" Source="/Neolog;component/Images/ApplicationIcon.png" />
-        <TextBlock HorizontalAlignment="Center" Margin="0,656,0,114" Name="txtLoading" Text="Loading..." Width="480" Foreground="BLack" FontSize="22" TextAlignment="Center" />
+        <Image Height="40" HorizontalAlignment="Center" Margin="0,200,0,0" Name="imgLogo" Stretch="Fill" VerticalAlignment="Top" Width="150" DataContext="{Binding}" Source="/Neolog;component/Images/logo.png" />
+        <TextBlock HorizontalAlignment="Center" Margin="0,656,0,114" Name="txtLoading" Text="Loading..." Width="480" Foreground="White" FontSize="22" TextAlignment="Center" />
     </Grid>
 
 </UserControl>

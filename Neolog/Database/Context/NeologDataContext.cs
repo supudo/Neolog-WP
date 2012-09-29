@@ -12,6 +12,9 @@ namespace Neolog.Database.Context
         {
         }
 
+        public Table<Nests> Nests;
         public Table<Texts> Texts;
+        public Table<WordComments> WordComments;
+        public Table<Words> Words;
     }
 }
