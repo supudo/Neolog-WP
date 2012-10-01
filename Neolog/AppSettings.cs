@@ -168,11 +168,13 @@ namespace Neolog
         #endregion
 
         #region Settings
+        const string ConfNameWordSync = "ConfNameWordSync";
         const string ConfNamePrivateData = "ConfNamePrivateData";
         const string ConfNamePDEmail = "ConfNamePDEmail";
         const string ConfNamePDName = "ConfNamePDName";
         const string ConfNamePDURL = "ConfNamePDURL";
 
+        const bool ConfDefaultWordSync = true;
         const bool ConfDefaultPrivateData = true;
         const string ConfDefaultPDEmail = "";
         const string ConfDefaultPDName = "";
@@ -210,6 +212,19 @@ namespace Neolog
         public static void Save()
         {
             isolatedStore.Save();
+        }
+
+        public static bool ConfWordSync
+        {
+            get
+            {
+                return GetValueOrDefault<bool>(ConfNameWordSync, ConfDefaultWordSync);
+            }
+            set
+            {
+                AddOrUpdateValue(ConfNameWordSync, value);
+                Save();
+            }
         }
 
         public static bool ConfPrivateData

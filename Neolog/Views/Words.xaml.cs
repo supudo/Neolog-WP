@@ -60,7 +60,11 @@ namespace Neolog.Views
                     this.pageTitle.Text = App.DbViewModel.GetNest(this.nestID).Title;
                 else
                     this.pageTitle.Text = letter.ToUpper();
-                this.loadingPopup.StartLoading(this.nestID, this.letter);
+
+                if (AppSettings.ConfWordSync)
+                    this.loadingPopup.StartLoading(this.nestID, this.letter);
+                else
+                    this.loadingPopup_LoadingComplete(null, null);
             }
         }
 

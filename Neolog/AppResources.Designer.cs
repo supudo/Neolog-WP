@@ -79,6 +79,15 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Автоматично синхронизирай думите.
+        /// </summary>
+        public static string conf_WordSync {
+            get {
+                return ResourceManager.GetString("conf_WordSync", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to В момента няма интернет връзка. Опитайте по-късно пак..
         /// </summary>
         public static string error_NoInternet {

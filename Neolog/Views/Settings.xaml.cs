@@ -28,11 +28,15 @@ namespace Neolog.Views
         {
             this.chkPrivateData.Content = AppResources.conf_PrivateData;
             this.chkPrivateData.IsChecked = AppSettings.ConfPrivateData;
+
+            this.chkWordSync.Content = AppResources.conf_WordSync;
+            this.chkWordSync.IsChecked = AppSettings.ConfWordSync;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
             AppSettings.ConfPrivateData = (bool)this.chkPrivateData.IsChecked;
+            AppSettings.ConfWordSync = (bool)this.chkWordSync.IsChecked;
 
             if (!AppSettings.ConfPrivateData)
             {

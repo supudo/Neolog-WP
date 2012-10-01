@@ -123,6 +123,9 @@
   <data name="conf_PrivateData" xml:space="preserve">
     <value>Запази лични данни</value>
   </data>
+  <data name="conf_WordSync" xml:space="preserve">
+    <value>Автоматично синхронизирай думите</value>
+  </data>
   <data name="error_NoInternet" xml:space="preserve">
     <value>В момента няма интернет връзка. Опитайте по-късно пак.</value>
   </data>
