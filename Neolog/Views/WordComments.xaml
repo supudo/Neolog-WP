@@ -11,7 +11,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -27,7 +27,20 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ListBox Name="listComments" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                            <TextBlock Text="{Binding Path=Comment}" FontSize="24" TextWrapping="Wrap" Margin="16" Foreground="White" />
+                            <TextBlock Text="{Binding Path=CommentDateString}" FontSize="24" TextWrapping="Wrap" Margin="12" Foreground="White" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Path=Author}" FontSize="24" TextWrapping="Wrap" Margin="12" Foreground="White" FontWeight="Bold" />
+                            <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="10,10,10,0" Name="border1" VerticalAlignment="Top" Width="438" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
     
     <phone:PhoneApplicationPage.ApplicationBar>

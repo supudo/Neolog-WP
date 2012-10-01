@@ -17,6 +17,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
 using Microsoft.Phone.Shell;
 using Neolog.Database.Models;
+using Neolog.Sync;
 using Neolog.Utilities;
 using Neolog.Utilities.Controls;
 
@@ -24,6 +25,7 @@ namespace Neolog.Views
 {
     public partial class WordDetails : NeologBasePage
     {
+        private Synchronization syncManager;
         private Word currentWord;
 
         public WordDetails()
@@ -32,6 +34,11 @@ namespace Neolog.Views
             this.LayoutRoot.Background = new SolidColorBrush(AppSettings.BackgroundColor);
             this.pageTitle.Text = AppResources.appName;
             this.Loaded += new RoutedEventHandler(WordDetails_Loaded);
+
+            if (this.syncManager == null)
+                this.syncManager = new Synchronization();
+            this.syncManager.SyncComplete +=new Synchronization.EventHandler(syncManager_SyncComplete);
+            this.syncManager.SyncError +=new Synchronization.EventHandler(syncManager_SyncError);
         }
 
         void WordDetails_Loaded(object sender, RoutedEventArgs e)
@@ -46,6 +53,7 @@ namespace Neolog.Views
             {
                 int wordID = int.Parse(wid);
                 int nestID = int.Parse(nid);
+                this.syncManager.DoGetWordCommentsInBackground(wordID);
                 this.currentWord = App.DbViewModel.GetWord(wordID);
                 this.pageTitle.Text = this.currentWord.WordContent;
 
@@ -96,6 +104,16 @@ namespace Neolog.Views
             webbrowser.Uri = new Uri(this.currentWord.AddedByUrl);
             webbrowser.Show();
         }
+
+        #region Sync
+        void syncManager_SyncComplete(object sender, NeologEventArgs e)
+        {
+        }
+
+        void syncManager_SyncError(object sender, NeologEventArgs e)
+        {
+        }
+        #endregion
 
         #region Application bar
         private new void BuildApplicationBar()

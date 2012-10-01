@@ -45,5 +45,12 @@ namespace Neolog.Database.Models
             get { return this._commentDate; }
             set { this._commentDate = value; }
         }
+
+        private string _commentDateString;
+        public string CommentDateString
+        {
+            get { return this._commentDateString; }
+            set { this._commentDateString = value; }
+        }
     }
 }

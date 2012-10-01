@@ -33,6 +33,8 @@ namespace Neolog.Views
             if (NavigationContext.QueryString.TryGetValue("wid", out wid))
             {
                 this.currentWord = App.DbViewModel.GetWord(int.Parse(wid));
+                this.pageTitle.Text = this.currentWord.WordContent;
+                this.listComments.ItemsSource = App.DbViewModel.GetWordComments(this.currentWord.WordId);
             }
         }
 

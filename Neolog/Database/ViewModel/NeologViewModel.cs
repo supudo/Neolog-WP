@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -186,6 +187,30 @@ namespace Neolog.Database.ViewModel
             nlDB.SubmitChanges();
         }
 
+        public void AddWordComment(WordComments ent)
+        {
+            var exists = from t in nlDB.WordComments
+                         where t.WordCommentId == ent.WordCommentId
+                         select t;
+            if (exists.Count() == 0)
+            {
+                ent.Word = nlDB.Words.Where(t => t.WordId == ent.WordId).FirstOrDefault();
+                nlDB.WordComments.InsertOnSubmit(ent);
+                AllWordComments.Add(ent);
+            }
+            else
+            {
+                WordComments t = exists.FirstOrDefault();
+                t.Author = ent.Author;
+                t.Comment = ent.Comment;
+                t.CommentDate = ent.CommentDate;
+                t.WordId = ent.WordId;
+                ent.Word = nlDB.Words.Where(t2 => t2.WordId == ent.WordId).FirstOrDefault();
+                t.RefWordId = t.Word.Id;
+            }
+            nlDB.SubmitChanges();
+        }
+
         public List<Word> GetWordsForNest(int nestId)
         {
             return nlDB.Words.Where(t => t.NestId == nestId).Select(t => new Word
@@ -244,6 +269,20 @@ namespace Neolog.Database.ViewModel
                 WordContent = t.WordContent,
                 WordId = t.WordId
             }).FirstOrDefault();
+        }
+
+        public List<WordComment> GetWordComments(int wid)
+        {
+            return nlDB.WordComments.Where(t => t.WordId == wid).Select(t => new WordComment
+            {
+                Id = t.Id,
+                Author = t.Author,
+                Comment = t.Comment,
+                CommentDate = t.CommentDate,
+                CommentDateString = AppSettings.DoLongDate(t.CommentDate, false, true),
+                WordCommentId = t.WordCommentId,
+                WordId = t.WordId
+            }).OrderByDescending(t => t.CommentDate).ToList();
         }
         #endregion
 

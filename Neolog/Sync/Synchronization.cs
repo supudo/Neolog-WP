@@ -27,10 +27,12 @@ namespace Neolog.Sync
             ServiceOpTexts,
             ServiceOpNests,
             ServiceOpSendWord,
-            ServiceOpWords
+            ServiceOpWords,
+            ServiceOpWordComments
         }
 
         BackgroundWorker bgWorker;
+        private int wordId;
         private int nestId;
         private string letter;
 
@@ -58,6 +60,9 @@ namespace Neolog.Sync
                 case ServiceOp.ServiceOpWords:
                     this.doWords(xmlContent);
                     break;
+                case ServiceOp.ServiceOpWordComments:
+                    this.doWordComments(xmlContent);
+                    break;
                 default:
                     SyncComplete(this, new NeologEventArgs(false, "", ""));
                     break;
@@ -70,6 +75,13 @@ namespace Neolog.Sync
         {
             this.currentOp = ServiceOp.ServiceOpSendWord;
             this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendWord", postParams);
+        }
+
+        public void DoGetWordCommentsInBackground(int wid)
+        {
+            this.wordId = wid;
+            this.bgWorker = new BackgroundWorker();
+            RunProcess();
         }
 
         public void DoGetWordsForNestInBackground(int nid)
@@ -96,7 +108,9 @@ namespace Neolog.Sync
 
         void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (this.nestId > 0)
+            if (this.wordId > 0)
+                this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordComments&wordID=" + this.wordId, true);
+            else if (this.nestId > 0)
                 this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForNest&nestID=" + this.nestId, true);
             else
                 this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForLetter&letter=" + this.letter, true);
@@ -136,7 +150,10 @@ namespace Neolog.Sync
         {
             if (!e.IsError)
             {
-                this.currentOp = ServiceOp.ServiceOpWords;
+                if (this.wordId > 0)
+                    this.currentOp = ServiceOp.ServiceOpWordComments;
+                else
+                    this.currentOp = ServiceOp.ServiceOpWords;
                 this.dispatchDownload(e.XmlContent);
             }
         }
@@ -214,6 +231,26 @@ namespace Neolog.Sync
             {
                 foreach (Words t in ents)
                     App.DbViewModel.AddWord(t);
+            }
+            this.SynchronizationComplete();
+        }
+
+        private void doWordComments(string xmlContent)
+        {
+            XDocument doc = XDocument.Parse(xmlContent);
+            var ents = from ent in doc.Descendants("wc")
+                       select new WordComments
+                       {
+                           WordCommentId = int.Parse(ent.Attribute("id").Value),
+                           WordId = int.Parse(ent.Attribute("wid").Value),
+                           Author = ent.Element("wcau").Value,
+                           Comment = ent.Element("wccomm").Value,
+                           CommentDate = DateTime.ParseExact(ent.Element("wcdt").Value + " 00:00:00", AppSettings.DateTimeFormat, null),
+                       };
+            using (NeologDataContext db = new NeologDataContext(AppSettings.DBConnectionString))
+            {
+                foreach (WordComments t in ents)
+                    App.DbViewModel.AddWordComment(t);
             }
             this.SynchronizationComplete();
         }
