@@ -38,22 +38,29 @@ namespace Neolog.Views
             base.BuildApplicationBar();
         }
 
+        private void InitPopup()
+        {
+            if (this.loadingPopup == null)
+                this.loadingPopup = new LoadingPopup();
+            this.loadingPopup.LoadingError += new LoadingPopup.EventHandler(loadingPopup_LoadingError);
+            this.loadingPopup.LoadingComplete += new LoadingPopup.EventHandler(loadingPopup_LoadingComplete);
+            if (this.popup == null)
+            {
+                this.popup = new Popup();
+                this.popup.Child = this.loadingPopup;
+            }
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             string n = "", l = "";
             if (NavigationContext.QueryString.TryGetValue("nid", out n) && NavigationContext.QueryString.TryGetValue("l", out l))
             {
+                this.InitPopup();
+
                 this.nestID = int.Parse(n);
                 this.letter = l;
 
-                if (this.loadingPopup == null)
-                    this.loadingPopup = new LoadingPopup();
-                this.loadingPopup.LoadingError += new LoadingPopup.EventHandler(loadingPopup_LoadingError);
-                this.loadingPopup.LoadingComplete += new LoadingPopup.EventHandler(loadingPopup_LoadingComplete);
-
-                this.popup = new Popup();
-
-                this.popup.Child = this.loadingPopup;
                 this.popup.IsOpen = true;
 
                 if (this.nestID > 0)

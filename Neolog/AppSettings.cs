@@ -89,16 +89,26 @@ namespace Neolog
 
         public static string DoLongDate(DateTime dt)
         {
+            return AppSettings.DoLongDate(dt, true, false);
+        }
+
+        public static string DoLongDate(DateTime dt, bool showTime, bool showYear)
+        {
             if (dt == null)
                 return "";
             string date = "";
-            date += dt.ToString("HH:mm");
-            date += " ";
+            if (showTime)
+            {
+                date += dt.ToString("HH:mm");
+                date += " ";
+            }
             date += AppResources.ResourceManager.GetString("weekday_" + ((int)dt.DayOfWeek + 1));
             date += ", ";
             date += dt.Day;
             date += " ";
             date += AppResources.ResourceManager.GetString("monthFull_" + dt.Month);
+            if (showYear)
+                date += " " + dt.Year;
             return date;
         }
 

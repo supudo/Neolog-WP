@@ -225,6 +225,26 @@ namespace Neolog.Database.ViewModel
                 WordId = t.WordId
             }).OrderBy(t => t.WordContent).ToList();
         }
+
+        public Word GetWord(int wid)
+        {
+            return nlDB.Words.Where(t => t.WordId == wid).Select(t => new Word
+            {
+                Id = t.Id,
+                AddedAtDate = t.AddedAtDate,
+                AddedBy = t.AddedBy,
+                AddedByEmail = t.AddedByEmail,
+                AddedByUrl = t.AddedByUrl,
+                CommentsCount = t.CommentsCount,
+                Derivatives = t.Derivatives,
+                Description = t.Description,
+                Ethimology = t.Ethimology,
+                Example = t.Example,
+                NestId = t.NestId,
+                WordContent = t.WordContent,
+                WordId = t.WordId
+            }).FirstOrDefault();
+        }
         #endregion
 
         #region INotifyPropertyChanged Members

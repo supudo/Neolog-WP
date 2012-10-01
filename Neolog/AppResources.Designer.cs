@@ -70,6 +70,15 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Коментари.
+        /// </summary>
+        public static string comments {
+            get {
+                return ResourceManager.GetString("comments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Запази лични данни.
         /// </summary>
         public static string conf_PrivateData {
@@ -178,6 +187,132 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Януари.
+        /// </summary>
+        public static string monthFull_1 {
+            get {
+                return ResourceManager.GetString("monthFull_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Октомври.
+        /// </summary>
+        public static string monthFull_10 {
+            get {
+                return ResourceManager.GetString("monthFull_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ноември.
+        /// </summary>
+        public static string monthFull_11 {
+            get {
+                return ResourceManager.GetString("monthFull_11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Декември.
+        /// </summary>
+        public static string monthFull_12 {
+            get {
+                return ResourceManager.GetString("monthFull_12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Февруари.
+        /// </summary>
+        public static string monthFull_2 {
+            get {
+                return ResourceManager.GetString("monthFull_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Март.
+        /// </summary>
+        public static string monthFull_3 {
+            get {
+                return ResourceManager.GetString("monthFull_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Април.
+        /// </summary>
+        public static string monthFull_4 {
+            get {
+                return ResourceManager.GetString("monthFull_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Май.
+        /// </summary>
+        public static string monthFull_5 {
+            get {
+                return ResourceManager.GetString("monthFull_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Юни.
+        /// </summary>
+        public static string monthFull_6 {
+            get {
+                return ResourceManager.GetString("monthFull_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Юли.
+        /// </summary>
+        public static string monthFull_7 {
+            get {
+                return ResourceManager.GetString("monthFull_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Август.
+        /// </summary>
+        public static string monthFull_8 {
+            get {
+                return ResourceManager.GetString("monthFull_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Септември.
+        /// </summary>
+        public static string monthFull_9 {
+            get {
+                return ResourceManager.GetString("monthFull_9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Затвори.
+        /// </summary>
+        public static string popup_Cancel {
+            get {
+                return ResourceManager.GetString("popup_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ОК.
+        /// </summary>
+        public static string popup_OK {
+            get {
+                return ResourceManager.GetString("popup_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Какво значи:.
         /// </summary>
         public static string send_Description {
@@ -250,11 +385,110 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Коментирай.
+        /// </summary>
+        public static string sendComment {
+            get {
+                return ResourceManager.GetString("sendComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изпрати на email....
+        /// </summary>
+        public static string share_Email_Desc {
+            get {
+                return ResourceManager.GetString("share_Email_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Благодарим ви!.
         /// </summary>
         public static string thankYou {
             get {
                 return ResourceManager.GetString("thankYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Понеделник.
+        /// </summary>
+        public static string weekday_1 {
+            get {
+                return ResourceManager.GetString("weekday_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вторник.
+        /// </summary>
+        public static string weekday_2 {
+            get {
+                return ResourceManager.GetString("weekday_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сряда.
+        /// </summary>
+        public static string weekday_3 {
+            get {
+                return ResourceManager.GetString("weekday_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Четвъртък.
+        /// </summary>
+        public static string weekday_4 {
+            get {
+                return ResourceManager.GetString("weekday_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Петък.
+        /// </summary>
+        public static string weekday_5 {
+            get {
+                return ResourceManager.GetString("weekday_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Събота.
+        /// </summary>
+        public static string weekday_6 {
+            get {
+                return ResourceManager.GetString("weekday_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неделя.
+        /// </summary>
+        public static string weekday_7 {
+            get {
+                return ResourceManager.GetString("weekday_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Етимология.
+        /// </summary>
+        public static string word_Ethimology {
+            get {
+                return ResourceManager.GetString("word_Ethimology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Примери.
+        /// </summary>
+        public static string word_Example {
+            get {
+                return ResourceManager.GetString("word_Example", resourceCulture);
             }
         }
     }
