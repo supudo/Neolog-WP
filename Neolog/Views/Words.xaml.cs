@@ -14,20 +14,13 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Neolog.Utilities;
 using Neolog.Utilities.Controls;
-using Neolog.Sync;
 
 namespace Neolog.Views
 {
     public partial class Words : NeologBasePage
     {
-        public delegate void EventHandler(Object sender, NeologEventArgs e);
-        public event EventHandler SyncComplete;
-        public event EventHandler SyncError;
-
         private Popup popup;
-        private SplashScreen splashScreen;
-
-        Synchronization syncManager;
+        private LoadingPopup loadingPopup;
 
         private int nestID = 0;
         private string letter = "";
@@ -52,33 +45,37 @@ namespace Neolog.Views
             {
                 this.nestID = int.Parse(n);
                 this.letter = l;
-                if (this.syncManager == null)
-                    this.syncManager = new Synchronization();
-                this.syncManager.SyncComplete += new Synchronization.EventHandler(syncManager_SyncComplete);
-                this.syncManager.SyncError += new Synchronization.EventHandler(syncManager_SyncError);
+
+                if (this.loadingPopup == null)
+                    this.loadingPopup = new LoadingPopup();
+                this.loadingPopup.LoadingError += new LoadingPopup.EventHandler(loadingPopup_LoadingError);
+                this.loadingPopup.LoadingComplete += new LoadingPopup.EventHandler(loadingPopup_LoadingComplete);
+
+                this.popup = new Popup();
+
+                this.popup.Child = this.loadingPopup;
+                this.popup.IsOpen = true;
+
                 if (this.nestID > 0)
-                {
                     this.pageTitle.Text = App.DbViewModel.GetNest(this.nestID).Title;
-                    this.syncManager.DoGetWordsForNestInBackground(this.nestID);
-                }
                 else
-                {
                     this.pageTitle.Text = letter.ToUpper();
-                    this.syncManager.DoGetWordsForLetterInBackground(this.letter);
-                }
+                this.loadingPopup.StartLoading(this.nestID, this.letter);
             }
         }
 
-        void syncManager_SyncComplete(object sender, NeologEventArgs e)
+        void loadingPopup_LoadingComplete(object sender, NeologEventArgs e)
         {
+            this.popup.IsOpen = false;
             if (this.nestID > 0)
                 this.wordsList.ItemsSource = App.DbViewModel.GetWordsForNest(this.nestID);
             else
                 this.wordsList.ItemsSource = App.DbViewModel.GetWordsForLetter(this.letter);
         }
 
-        void syncManager_SyncError(object sender, NeologEventArgs e)
+        void loadingPopup_LoadingError(object sender, NeologEventArgs e)
         {
+            this.popup.IsOpen = false;
             if (e.IsError)
                 MessageBox.Show(e.ErrorMessage);
         }

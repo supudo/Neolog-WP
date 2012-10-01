@@ -7,9 +7,9 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="100" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot" Height="100">
+    d:DesignHeight="768" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Width="480" Height="768" Background="#AA000000">
         <ProgressBar HorizontalAlignment="Stretch" Margin="0" Name="progressBar" IsIndeterminate="True" />
     </Grid>
 </UserControl>
