@@ -50,7 +50,7 @@ namespace Neolog.Views
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/Nests.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/NestsAndLetters.xaml", UriKind.Relative));
         }
 
         private void post_Click(object sender, EventArgs e)

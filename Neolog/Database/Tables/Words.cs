@@ -273,7 +273,7 @@ namespace Neolog.Database.Tables
                 NotifyPropertyChanging("Nest");
                 _nest.Entity = value;
                 if (value != null)
-                    _wordId = value.NestId;
+                    _nestId = value.NestId;
                 NotifyPropertyChanging("Nest");
             }
         }

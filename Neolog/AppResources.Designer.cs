@@ -106,6 +106,15 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Букви.
+        /// </summary>
+        public static string menu_Letters {
+            get {
+                return ResourceManager.GetString("menu_Letters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Гнезда.
         /// </summary>
         public static string menu_Nests {

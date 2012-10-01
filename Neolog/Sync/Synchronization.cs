@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Xml.Linq;
-using System.Threading;
 using Neolog.Database.Context;
 using Neolog.Database.Tables;
 using Neolog.Utilities.Network;
@@ -27,16 +26,20 @@ namespace Neolog.Sync
         {
             ServiceOpTexts,
             ServiceOpNests,
-            ServiceOpSendWord
+            ServiceOpSendWord,
+            ServiceOpWords
         }
 
         BackgroundWorker bgWorker;
+        private int nestId;
+        private string letter;
 
         #region Constructor
         public Synchronization()
         {
             this._networkHelper = new NetworkHelper();
             this._networkHelper.DownloadComplete += new NetworkHelper.EventHandler(_networkHelper_DownloadComplete);
+            this._networkHelper.DownloadInBackgroundComplete +=new NetworkHelper.EventHandler(_networkHelper_DownloadInBackgroundComplete);
             this._networkHelper.DownloadError += new NetworkHelper.EventHandler(_networkHelper_DownloadError);
         }
         #endregion
@@ -52,6 +55,9 @@ namespace Neolog.Sync
                 case ServiceOp.ServiceOpNests:
                     this.doNests(xmlContent);
                     break;
+                case ServiceOp.ServiceOpWords:
+                    this.doWords(xmlContent);
+                    break;
                 default:
                     SyncComplete(this, new NeologEventArgs(false, "", ""));
                     break;
@@ -64,6 +70,36 @@ namespace Neolog.Sync
         {
             this.currentOp = ServiceOp.ServiceOpSendWord;
             this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendWord", postParams);
+        }
+
+        public void DoGetWordsForNestInBackground(int nid)
+        {
+            this.nestId = nid;
+            this.letter = "";
+            this.bgWorker = new BackgroundWorker();
+            RunProcess();
+        }
+
+        public void DoGetWordsForLetterInBackground(string letter)
+        {
+            this.nestId = 0;
+            this.letter = letter;
+            this.bgWorker = new BackgroundWorker();
+            RunProcess();
+        }
+
+        private void RunProcess()
+        {
+            this.bgWorker.DoWork += new DoWorkEventHandler(bgWorker_DoWork);
+            this.bgWorker.RunWorkerAsync();
+        }
+
+        void bgWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (this.nestId > 0)
+                this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForNest&nestID=" + this.nestId, true);
+            else
+                this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForLetter&letter=" + this.letter, true);
         }
         #endregion
 
@@ -94,6 +130,15 @@ namespace Neolog.Sync
         {
             if (!e.IsError)
                 this.dispatchDownload(e.XmlContent);
+        }
+
+        void _networkHelper_DownloadInBackgroundComplete(object sender, NeologEventArgs e)
+        {
+            if (!e.IsError)
+            {
+                this.currentOp = ServiceOp.ServiceOpWords;
+                this.dispatchDownload(e.XmlContent);
+            }
         }
 
         void _networkHelper_DownloadError(object sender, NeologEventArgs e)
@@ -143,6 +188,32 @@ namespace Neolog.Sync
             {
                 foreach (Nests t in ents)
                     App.DbViewModel.AddNest(t);
+            }
+            this.SynchronizationComplete();
+        }
+
+        private void doWords(string xmlContent)
+        {
+            XDocument doc = XDocument.Parse(xmlContent);
+            var ents = from ent in doc.Descendants("wrd")
+                       select new Words
+                       {
+                           WordId = int.Parse(ent.Attribute("id").Value),
+                           NestId = int.Parse(ent.Element("wnid").Value),
+                           CommentsCount = int.Parse(ent.Element("wcms").Value),
+                           AddedBy = ent.Element("wnm").Value,
+                           AddedByEmail = ent.Element("wem").Value,
+                           AddedByUrl = ent.Element("wurl").Value,
+                           Description = ent.Element("wdsc").Value,
+                           Ethimology = ent.Element("wet").Value,
+                           Example = ent.Element("wex").Value,
+                           WordContent = ent.Element("wwrd").Value,
+                           AddedAtDate = DateTime.ParseExact(ent.Element("wdt").Value + " 00:00:00", AppSettings.DateTimeFormat, null),
+                       };
+            using (NeologDataContext db = new NeologDataContext(AppSettings.DBConnectionString))
+            {
+                foreach (Words t in ents)
+                    App.DbViewModel.AddWord(t);
             }
             this.SynchronizationComplete();
         }

@@ -28,7 +28,7 @@ namespace Neolog
         void MainPage_SyncComplete(object sender, NeologEventArgs e)
         {
             base.BuildApplicationBar();
-            NavigationService.Navigate(new Uri("/Views/Nests.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/NestsAndLetters.xaml", UriKind.Relative));
         }
     }
 }

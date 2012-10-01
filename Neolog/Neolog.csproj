@@ -101,6 +101,9 @@
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sync\Synchronization.cs" />
+    <Compile Include="Utilities\Controls\LoadingPopup.xaml.cs">
+      <DependentUpon>LoadingPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Converters\OfferDateLongConverter.cs" />
     <Compile Include="Utilities\Converters\OfferDateShortConverter.cs" />
     <Compile Include="Utilities\Extensions\RichTextBoxExtensions.cs" />
@@ -110,8 +113,8 @@
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Nests.xaml.cs">
-      <DependentUpon>Nests.xaml</DependentUpon>
+    <Compile Include="Views\NestsAndLetters.xaml.cs">
+      <DependentUpon>NestsAndLetters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SendWord.xaml.cs">
       <DependentUpon>SendWord.xaml</DependentUpon>
@@ -136,11 +139,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Utilities\Controls\LoadingPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Nests.xaml">
+    <Page Include="Views\NestsAndLetters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

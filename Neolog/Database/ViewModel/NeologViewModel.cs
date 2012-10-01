@@ -136,16 +136,79 @@ namespace Neolog.Database.ViewModel
             return nlDB.Nests.Select(t => new Nest
                     {
                         Id = t.Id,
+                        NestId = t.NestId,
                         Title = t.Title,
                         OrderPos = t.OrderPos,
                     }).OrderBy(t => t.OrderPos).ToList();
         }
+
+        public Nest GetNest(int nid)
+        {
+            return nlDB.Nests.Where(t => t.NestId == nid).Select(t => new Nest
+            {
+                Id = t.Id,
+                Title = t.Title,
+                OrderPos = t.OrderPos,
+            }).FirstOrDefault();
+        }
         #endregion
 
         #region Words
-        public List<Word> GetWords(int nestId)
+        public void AddWord(Words ent)
+        {
+            var exists = from t in nlDB.Words
+                         where t.WordId == ent.WordId
+                         select t;
+            if (exists.Count() == 0)
+            {
+                ent.Nest = nlDB.Nests.Where(t => t.NestId == ent.NestId).FirstOrDefault();
+                nlDB.Words.InsertOnSubmit(ent);
+                AllWords.Add(ent);
+            }
+            else
+            {
+                Words t = exists.FirstOrDefault();
+                t.AddedAtDate = ent.AddedAtDate;
+                t.AddedBy = ent.AddedBy;
+                t.AddedByEmail = ent.AddedByEmail;
+                t.AddedByUrl = ent.AddedByUrl;
+                t.CommentsCount = ent.CommentsCount;
+                t.Derivatives = ent.Derivatives;
+                t.Description = ent.Description;
+                t.Ethimology = ent.Ethimology;
+                t.Example = ent.Example;
+                t.NestId = ent.NestId;
+                t.WordComments = ent.WordComments;
+                t.WordContent = ent.WordContent;
+                t.Nest = nlDB.Nests.Where(t2 => t2.NestId == ent.NestId).FirstOrDefault();
+                t.RefNestId = t.Nest.Id;
+            }
+            nlDB.SubmitChanges();
+        }
+
+        public List<Word> GetWordsForNest(int nestId)
         {
             return nlDB.Words.Where(t => t.NestId == nestId).Select(t => new Word
+            {
+                Id = t.Id,
+                AddedAtDate = t.AddedAtDate,
+                AddedBy = t.AddedBy,
+                AddedByEmail = t.AddedByEmail,
+                AddedByUrl = t.AddedByUrl,
+                CommentsCount = t.CommentsCount,
+                Derivatives = t.Derivatives,
+                Description = t.Description,
+                Ethimology = t.Ethimology,
+                Example = t.Example,
+                NestId = t.NestId,
+                WordContent = t.WordContent,
+                WordId = t.WordId
+            }).OrderBy(t => t.WordContent).ToList();
+        }
+
+        public List<Word> GetWordsForLetter(string letter)
+        {
+            return nlDB.Words.Where(t => t.WordContent.ToLower().StartsWith(letter.ToLower())).Select(t => new Word
             {
                 Id = t.Id,
                 AddedAtDate = t.AddedAtDate,
