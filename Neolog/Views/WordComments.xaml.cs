@@ -11,12 +11,15 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Neolog.Database.Models;
 using Neolog.Utilities;
 
 namespace Neolog.Views
 {
     public partial class WordComments : NeologBasePage
     {
+        private Word currentWord;
+
         public WordComments()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace Neolog.Views
             string wid = "";
             if (NavigationContext.QueryString.TryGetValue("wid", out wid))
             {
-                int wordID = int.Parse(wid);
+                this.currentWord = App.DbViewModel.GetWord(int.Parse(wid));
             }
         }
 
@@ -40,6 +43,7 @@ namespace Neolog.Views
 
         private void sendComment_Click(object sender, EventArgs e)
         {
+            NavigationService.Navigate(new Uri("/Views/SendComment.xaml?wid=" + this.currentWord.WordId, UriKind.Relative));
         }
     }
 }

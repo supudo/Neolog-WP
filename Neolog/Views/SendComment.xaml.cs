@@ -22,5 +22,15 @@ namespace Neolog.Views
             this.LayoutRoot.Background = new SolidColorBrush(AppSettings.BackgroundColor);
             this.pageTitle.Text = AppResources.appName;
         }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void post_Click(object sender, EventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
