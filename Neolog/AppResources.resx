@@ -123,6 +123,9 @@
   <data name="comments" xml:space="preserve">
     <value>Коментари</value>
   </data>
+  <data name="comment_Empty" xml:space="preserve">
+    <value>Не сте написали коментар.</value>
+  </data>
   <data name="conf_PrivateData" xml:space="preserve">
     <value>Запази лични данни</value>
   </data>
@@ -260,5 +263,11 @@
   </data>
   <data name="word_Example" xml:space="preserve">
     <value>Примери</value>
+  </data>
+  <data name="your_Comment" xml:space="preserve">
+    <value>Твоят коментар:</value>
+  </data>
+  <data name="your_CommentAuhor" xml:space="preserve">
+    <value>Име/псевдоним:</value>
   </data>
 </root>

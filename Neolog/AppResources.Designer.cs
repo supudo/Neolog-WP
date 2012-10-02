@@ -70,6 +70,15 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не сте написали коментар..
+        /// </summary>
+        public static string comment_Empty {
+            get {
+                return ResourceManager.GetString("comment_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Коментари.
         /// </summary>
         public static string comments {
@@ -489,6 +498,24 @@ namespace Neolog {
         public static string word_Example {
             get {
                 return ResourceManager.GetString("word_Example", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Твоят коментар:.
+        /// </summary>
+        public static string your_Comment {
+            get {
+                return ResourceManager.GetString("your_Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име/псевдоним:.
+        /// </summary>
+        public static string your_CommentAuhor {
+            get {
+                return ResourceManager.GetString("your_CommentAuhor", resourceCulture);
             }
         }
     }

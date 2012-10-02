@@ -61,17 +61,25 @@ namespace Neolog.Views
                 this.nestID = int.Parse(n);
                 this.letter = l;
 
-                this.popup.IsOpen = true;
-
                 if (this.nestID > 0)
                     this.pageTitle.Text = App.DbViewModel.GetNest(this.nestID).Title;
                 else
                     this.pageTitle.Text = letter.ToUpper();
 
-                if (AppSettings.ConfWordSync)
-                    this.loadingPopup.StartLoading(this.nestID, this.letter);
+                if (this.nestID > 0)
+                    this.wordsList.ItemsSource = App.DbViewModel.GetWordsForNest(this.nestID);
                 else
-                    this.loadingPopup_LoadingComplete(null, null);
+                    this.wordsList.ItemsSource = App.DbViewModel.GetWordsForLetter(this.letter);
+
+                if (this.wordsList.Items.Count == 0)
+                {
+                    this.popup.IsOpen = true;
+
+                    if (AppSettings.ConfWordSync)
+                        this.loadingPopup.StartLoading(this.nestID, this.letter);
+                    else
+                        this.loadingPopup_LoadingComplete(null, null);
+                }
             }
         }
 

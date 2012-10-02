@@ -32,9 +32,9 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                            <TextBlock Text="{Binding Path=Comment}" FontSize="24" TextWrapping="Wrap" Margin="16" Foreground="White" />
                             <TextBlock Text="{Binding Path=CommentDateString}" FontSize="24" TextWrapping="Wrap" Margin="12" Foreground="White" FontWeight="Bold" />
                             <TextBlock Text="{Binding Path=Author}" FontSize="24" TextWrapping="Wrap" Margin="12" Foreground="White" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Path=Comment}" FontSize="24" TextWrapping="Wrap" Margin="16" Foreground="White" />
                             <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="10,10,10,0" Name="border1" VerticalAlignment="Top" Width="438" />
                         </StackPanel>
                     </DataTemplate>

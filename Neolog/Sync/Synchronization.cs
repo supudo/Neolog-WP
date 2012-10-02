@@ -28,7 +28,8 @@ namespace Neolog.Sync
             ServiceOpNests,
             ServiceOpSendWord,
             ServiceOpWords,
-            ServiceOpWordComments
+            ServiceOpWordComments,
+            ServiceOpSendComment
         }
 
         BackgroundWorker bgWorker;
@@ -75,6 +76,12 @@ namespace Neolog.Sync
         {
             this.currentOp = ServiceOp.ServiceOpSendWord;
             this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendWord", postParams);
+        }
+
+        public void DoSendComment(Dictionary<string, string> postParams)
+        {
+            this.currentOp = ServiceOp.ServiceOpSendComment;
+            this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendComment", postParams);
         }
 
         public void DoGetWordCommentsInBackground(int wid)
