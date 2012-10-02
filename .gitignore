@@ -44,6 +44,7 @@ local.properties
 # Build results
 [Dd]ebug/
 [Rr]elease/
+PerformanceLogs/
 *_i.c
 *_p.c
 *.ilk
@@ -62,6 +63,7 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+*.sap
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/

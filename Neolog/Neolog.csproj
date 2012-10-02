@@ -202,6 +202,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Neolog_2012_10_02_12_42_23.sap" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
