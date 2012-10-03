@@ -75,6 +75,17 @@ namespace Neolog
         public static string TwitterConsumerKey = "";
         public static string TwitterConsumerKeySecret = "";
         public static string TwitterOAuthVersion = "1.0a";
+
+        public enum ServiceOp
+        {
+            ServiceOpUnknown,
+            ServiceOpTexts,
+            ServiceOpNests,
+            ServiceOpSendWord,
+            ServiceOpWords,
+            ServiceOpWordComments,
+            ServiceOpSendComment
+        }
         #endregion
 
         #region Helpers

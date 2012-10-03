@@ -13,6 +13,7 @@ namespace Neolog.Utilities
 {
     public class NeologEventArgs : EventArgs
     {
+        private AppSettings.ServiceOp serviceOp;
         private bool isError;
         private string errorMessage;
         private string xmlContent;
@@ -22,6 +23,14 @@ namespace Neolog.Utilities
             this.isError = ise;
             this.errorMessage = eMsg;
             this.xmlContent = xml;
+        }
+
+        public NeologEventArgs(bool ise, string eMsg, string xml, AppSettings.ServiceOp sOp)
+        {
+            this.isError = ise;
+            this.errorMessage = eMsg;
+            this.xmlContent = xml;
+            this.serviceOp = sOp;
         }
 
         public bool IsError
@@ -37,6 +46,11 @@ namespace Neolog.Utilities
         public string XmlContent
         {
             get { return this.xmlContent; }
+        }
+
+        public AppSettings.ServiceOp ServiceOp
+        {
+            get { return this.serviceOp; }
         }
     }
 }

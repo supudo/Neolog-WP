@@ -21,16 +21,7 @@ namespace Neolog.Sync
 
         NetworkHelper _networkHelper;
 
-        private ServiceOp currentOp;
-        enum ServiceOp
-        {
-            ServiceOpTexts,
-            ServiceOpNests,
-            ServiceOpSendWord,
-            ServiceOpWords,
-            ServiceOpWordComments,
-            ServiceOpSendComment
-        }
+        private AppSettings.ServiceOp currentOp;
 
         BackgroundWorker bgWorker;
         private int wordId;
@@ -52,16 +43,16 @@ namespace Neolog.Sync
         {
             switch (this.currentOp)
             {
-                case ServiceOp.ServiceOpTexts:
+                case AppSettings.ServiceOp.ServiceOpTexts:
                     this.doTexts(xmlContent);
                     break;
-                case ServiceOp.ServiceOpNests:
+                case AppSettings.ServiceOp.ServiceOpNests:
                     this.doNests(xmlContent);
                     break;
-                case ServiceOp.ServiceOpWords:
+                case AppSettings.ServiceOp.ServiceOpWords:
                     this.doWords(xmlContent);
                     break;
-                case ServiceOp.ServiceOpWordComments:
+                case AppSettings.ServiceOp.ServiceOpWordComments:
                     this.doWordComments(xmlContent);
                     break;
                 default:
@@ -74,13 +65,13 @@ namespace Neolog.Sync
         #region Public
         public void DoSendWord(Dictionary<string, string> postParams)
         {
-            this.currentOp = ServiceOp.ServiceOpSendWord;
+            this.currentOp = AppSettings.ServiceOp.ServiceOpSendWord;
             this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendWord", postParams);
         }
 
         public void DoSendComment(Dictionary<string, string> postParams)
         {
-            this.currentOp = ServiceOp.ServiceOpSendComment;
+            this.currentOp = AppSettings.ServiceOp.ServiceOpSendComment;
             this._networkHelper.uploadURL(AppSettings.ServicesURL + "?action=SendComment", postParams);
         }
 
@@ -115,26 +106,39 @@ namespace Neolog.Sync
 
         void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (this.wordId > 0)
-                this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordComments&wordID=" + this.wordId, true);
-            else if (this.nestId > 0)
-                this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForNest&nestID=" + this.nestId, true);
-            else
-                this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForLetter&letter=" + this.letter, true);
+            switch (this.currentOp)
+            {
+                case AppSettings.ServiceOp.ServiceOpTexts:
+                    this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=GetContent", true, this.currentOp);
+                    break;
+                case AppSettings.ServiceOp.ServiceOpNests:
+                    this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=GetNests", true, this.currentOp);
+                    break;
+                default:
+                    if (this.wordId > 0)
+                        this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordComments&wordID=" + this.wordId, true, AppSettings.ServiceOp.ServiceOpWordComments);
+                    else if (this.nestId > 0)
+                        this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForNest&nestID=" + this.nestId, true, AppSettings.ServiceOp.ServiceOpWords);
+                    else
+                        this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=FetchWordsForLetter&letter=" + this.letter, true, AppSettings.ServiceOp.ServiceOpWords);
+                    break;
+            }
         }
         #endregion
 
         #region Handle URLs
         private void syncTexts()
         {
-            this.currentOp = ServiceOp.ServiceOpTexts;
-            this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=GetContent");
+            this.currentOp = AppSettings.ServiceOp.ServiceOpTexts;
+            this.bgWorker = new BackgroundWorker();
+            RunProcess();
         }
 
         private void syncNests()
         {
-            this.currentOp = ServiceOp.ServiceOpNests;
-            this._networkHelper.downloadURL(AppSettings.ServicesURL + "?action=GetNests");
+            this.currentOp = AppSettings.ServiceOp.ServiceOpNests;
+            this.bgWorker = new BackgroundWorker();
+            RunProcess();
         }
         #endregion
 
@@ -158,9 +162,11 @@ namespace Neolog.Sync
             if (!e.IsError)
             {
                 if (this.wordId > 0)
-                    this.currentOp = ServiceOp.ServiceOpWordComments;
+                    this.currentOp = AppSettings.ServiceOp.ServiceOpWordComments;
                 else
-                    this.currentOp = ServiceOp.ServiceOpWords;
+                    this.currentOp = AppSettings.ServiceOp.ServiceOpWords;
+                if (e.ServiceOp > 0)
+                    this.currentOp = e.ServiceOp;
                 this.dispatchDownload(e.XmlContent);
             }
         }

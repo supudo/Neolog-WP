@@ -125,28 +125,29 @@ namespace Neolog.Views
             appBarButton.Click += new System.EventHandler(back_Click);
             this.ApplicationBar.Buttons.Add(appBarButton);
 
-            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-share-facebook.png", UriKind.Relative));
-            appBarButton.Text = "facebook";
-            appBarButton.Click += new System.EventHandler(shareFacebook_Click);
+            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-share.png", UriKind.Relative));
+            appBarButton.Text = "share";
+            appBarButton.Click += new System.EventHandler(share_Click);
             this.ApplicationBar.Buttons.Add(appBarButton);
 
-            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-share-twitter.png", UriKind.Relative));
-            appBarButton.Text = "twitter";
-            appBarButton.Click += new System.EventHandler(shareTwitter_Click);
+            appBarButton = new ApplicationBarIconButton(new Uri("images/menu/tb-send-comment.png", UriKind.Relative));
+            appBarButton.Text = AppResources.sendComment;
+            appBarButton.Click += new System.EventHandler(word_sendComment);
             this.ApplicationBar.Buttons.Add(appBarButton);
 
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.comments);
             appBarMenuItem.Click += new System.EventHandler(word_viewComments);
-            this.ApplicationBar.MenuItems.Add(appBarMenuItem);
-
-            appBarMenuItem = new ApplicationBarMenuItem(AppResources.sendComment);
-            appBarMenuItem.Click += new System.EventHandler(word_sendComment);
             this.ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
 
         private void back_Click(object sender, EventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void share_Click(object sender, EventArgs e)
+        {
+            this.share();
         }
 
         private void shareFacebook_Click(object sender, EventArgs e)
@@ -167,6 +168,17 @@ namespace Neolog.Views
         private void word_sendComment(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/SendComment.xaml?wid=" + this.currentWord.WordId, UriKind.Relative));
+        }
+        #endregion
+
+        #region Share
+        private void share()
+        {
+            ShareLinkTask shareLinkTask = new ShareLinkTask();
+            shareLinkTask.Title = this.currentWord.WordContent;
+            shareLinkTask.LinkUri = new Uri("http://www.neolog.bg/word/" + this.currentWord.WordId, UriKind.Absolute);
+            shareLinkTask.Message = this.currentWord.Description;
+            shareLinkTask.Show();
         }
         #endregion
 
