@@ -56,7 +56,7 @@ namespace Neolog
         public static string DBConnectionString = "Data Source=isostore:/Neolog.sdf";
 
         public static string ServicesURL = "http://www.neolog.bg/service.php";
-        public static bool InDebug = true;
+        public static bool InDebug = false;
 
         public static string DateTimeFormat = "dd-MM-yyyy HH:mm:ss";
         //public static string BackgroundColor = "#FF29435E";
