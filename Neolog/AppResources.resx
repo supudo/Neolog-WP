@@ -121,153 +121,153 @@
     <value>Neolog</value>
   </data>
   <data name="comments" xml:space="preserve">
-    <value>Коментари</value>
+    <value>Comments</value>
   </data>
   <data name="comment_Empty" xml:space="preserve">
-    <value>Не сте написали коментар.</value>
+    <value>You didn't enter comment.</value>
   </data>
   <data name="conf_PrivateData" xml:space="preserve">
-    <value>Запази лични данни</value>
+    <value>Save private data</value>
   </data>
   <data name="conf_WordSync" xml:space="preserve">
-    <value>Автоматично синхронизирай думите</value>
+    <value>Synchronize words automatically</value>
   </data>
   <data name="error_NoInternet" xml:space="preserve">
-    <value>В момента няма интернет връзка. Опитайте по-късно пак.</value>
+    <value>No Internet connection at the moment. Please, try again later.</value>
   </data>
   <data name="loading" xml:space="preserve">
-    <value>Зареждане...</value>
+    <value>Loading...</value>
   </data>
   <data name="menu_About" xml:space="preserve">
-    <value>За Neolog</value>
+    <value>About Neolog</value>
   </data>
   <data name="menu_Letters" xml:space="preserve">
-    <value>Букви</value>
+    <value>Letters</value>
   </data>
   <data name="menu_Nests" xml:space="preserve">
-    <value>Гнезда</value>
+    <value>Nests</value>
   </data>
   <data name="menu_Post" xml:space="preserve">
-    <value>Изпрати дума</value>
+    <value>Send a word</value>
   </data>
   <data name="menu_Send" xml:space="preserve">
-    <value>Изпрати</value>
+    <value>Send</value>
   </data>
   <data name="menu_Settings" xml:space="preserve">
-    <value>Настройки</value>
+    <value>Settings</value>
   </data>
   <data name="menu_Words" xml:space="preserve">
-    <value>Думи</value>
+    <value>Words</value>
   </data>
   <data name="missingFields" xml:space="preserve">
-    <value>Има нещо изпуснато...</value>
+    <value>Something is missing...</value>
   </data>
   <data name="monthFull_1" xml:space="preserve">
-    <value>Януари</value>
+    <value>January</value>
   </data>
   <data name="monthFull_10" xml:space="preserve">
-    <value>Октомври</value>
+    <value>October</value>
   </data>
   <data name="monthFull_11" xml:space="preserve">
-    <value>Ноември</value>
+    <value>November</value>
   </data>
   <data name="monthFull_12" xml:space="preserve">
-    <value>Декември</value>
+    <value>December</value>
   </data>
   <data name="monthFull_2" xml:space="preserve">
-    <value>Февруари</value>
+    <value>February</value>
   </data>
   <data name="monthFull_3" xml:space="preserve">
-    <value>Март</value>
+    <value>March</value>
   </data>
   <data name="monthFull_4" xml:space="preserve">
-    <value>Април</value>
+    <value>April</value>
   </data>
   <data name="monthFull_5" xml:space="preserve">
-    <value>Май</value>
+    <value>May</value>
   </data>
   <data name="monthFull_6" xml:space="preserve">
-    <value>Юни</value>
+    <value>June</value>
   </data>
   <data name="monthFull_7" xml:space="preserve">
-    <value>Юли</value>
+    <value>July</value>
   </data>
   <data name="monthFull_8" xml:space="preserve">
-    <value>Август</value>
+    <value>August</value>
   </data>
   <data name="monthFull_9" xml:space="preserve">
-    <value>Септември</value>
+    <value>September</value>
   </data>
   <data name="popup_Cancel" xml:space="preserve">
-    <value>Затвори</value>
+    <value>Close</value>
   </data>
   <data name="popup_OK" xml:space="preserve">
-    <value>ОК</value>
+    <value>OK</value>
   </data>
   <data name="sendComment" xml:space="preserve">
-    <value>Коментирай</value>
+    <value>Comment</value>
   </data>
   <data name="send_Description" xml:space="preserve">
-    <value>Какво значи:</value>
+    <value>Meaning:</value>
   </data>
   <data name="send_Email" xml:space="preserve">
     <value>Email:</value>
   </data>
   <data name="send_Ethimology" xml:space="preserve">
-    <value>Етимология (произход):</value>
+    <value>Ethimology (origin):</value>
   </data>
   <data name="send_Example" xml:space="preserve">
-    <value>Примери:</value>
+    <value>Examples:</value>
   </data>
   <data name="send_Name" xml:space="preserve">
-    <value>Име/псевдоним:</value>
+    <value>Name/nickname:</value>
   </data>
   <data name="send_Nest" xml:space="preserve">
-    <value>Гнездо:</value>
+    <value>Nest:</value>
   </data>
   <data name="send_URL" xml:space="preserve">
-    <value>Вашият сайт:</value>
+    <value>Your web-site:</value>
   </data>
   <data name="send_Word" xml:space="preserve">
-    <value>Думата:</value>
+    <value>The word:</value>
   </data>
   <data name="share_Email_Desc" xml:space="preserve">
-    <value>Изпрати на email...</value>
+    <value>Send to email...</value>
   </data>
   <data name="thankYou" xml:space="preserve">
-    <value>Благодарим ви!</value>
+    <value>Thank You!</value>
   </data>
   <data name="weekday_1" xml:space="preserve">
-    <value>Понеделник</value>
+    <value>Monday</value>
   </data>
   <data name="weekday_2" xml:space="preserve">
-    <value>Вторник</value>
+    <value>Tuesday</value>
   </data>
   <data name="weekday_3" xml:space="preserve">
-    <value>Сряда</value>
+    <value>Wednesday</value>
   </data>
   <data name="weekday_4" xml:space="preserve">
-    <value>Четвъртък</value>
+    <value>Thursday</value>
   </data>
   <data name="weekday_5" xml:space="preserve">
-    <value>Петък</value>
+    <value>Friday</value>
   </data>
   <data name="weekday_6" xml:space="preserve">
-    <value>Събота</value>
+    <value>Saturday</value>
   </data>
   <data name="weekday_7" xml:space="preserve">
-    <value>Неделя</value>
+    <value>Sunday</value>
   </data>
   <data name="word_Ethimology" xml:space="preserve">
-    <value>Етимология</value>
+    <value>Ethimology</value>
   </data>
   <data name="word_Example" xml:space="preserve">
-    <value>Примери</value>
+    <value>Examples</value>
   </data>
   <data name="your_Comment" xml:space="preserve">
-    <value>Твоят коментар:</value>
+    <value>Your comment:</value>
   </data>
   <data name="your_CommentAuhor" xml:space="preserve">
-    <value>Име/псевдоним:</value>
+    <value>Name/nickname: </value>
   </data>
 </root>

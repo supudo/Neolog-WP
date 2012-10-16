@@ -70,7 +70,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не сте написали коментар..
+        ///   Looks up a localized string similar to You didn&apos;t enter comment..
         /// </summary>
         public static string comment_Empty {
             get {
@@ -79,7 +79,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Коментари.
+        ///   Looks up a localized string similar to Comments.
         /// </summary>
         public static string comments {
             get {
@@ -88,7 +88,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Запази лични данни.
+        ///   Looks up a localized string similar to Save private data.
         /// </summary>
         public static string conf_PrivateData {
             get {
@@ -97,7 +97,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Автоматично синхронизирай думите.
+        ///   Looks up a localized string similar to Synchronize words automatically.
         /// </summary>
         public static string conf_WordSync {
             get {
@@ -106,7 +106,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to В момента няма интернет връзка. Опитайте по-късно пак..
+        ///   Looks up a localized string similar to No Internet connection at the moment. Please, try again later..
         /// </summary>
         public static string error_NoInternet {
             get {
@@ -115,7 +115,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Зареждане....
+        ///   Looks up a localized string similar to Loading....
         /// </summary>
         public static string loading {
             get {
@@ -124,7 +124,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to За Neolog.
+        ///   Looks up a localized string similar to About Neolog.
         /// </summary>
         public static string menu_About {
             get {
@@ -133,7 +133,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Букви.
+        ///   Looks up a localized string similar to Letters.
         /// </summary>
         public static string menu_Letters {
             get {
@@ -142,7 +142,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Гнезда.
+        ///   Looks up a localized string similar to Nests.
         /// </summary>
         public static string menu_Nests {
             get {
@@ -151,7 +151,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Изпрати дума.
+        ///   Looks up a localized string similar to Send a word.
         /// </summary>
         public static string menu_Post {
             get {
@@ -160,7 +160,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Изпрати.
+        ///   Looks up a localized string similar to Send.
         /// </summary>
         public static string menu_Send {
             get {
@@ -169,7 +169,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Настройки.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string menu_Settings {
             get {
@@ -178,7 +178,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Думи.
+        ///   Looks up a localized string similar to Words.
         /// </summary>
         public static string menu_Words {
             get {
@@ -187,7 +187,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Има нещо изпуснато....
+        ///   Looks up a localized string similar to Something is missing....
         /// </summary>
         public static string missingFields {
             get {
@@ -196,7 +196,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Януари.
+        ///   Looks up a localized string similar to January.
         /// </summary>
         public static string monthFull_1 {
             get {
@@ -205,7 +205,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Октомври.
+        ///   Looks up a localized string similar to October.
         /// </summary>
         public static string monthFull_10 {
             get {
@@ -214,7 +214,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ноември.
+        ///   Looks up a localized string similar to November.
         /// </summary>
         public static string monthFull_11 {
             get {
@@ -223,7 +223,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Декември.
+        ///   Looks up a localized string similar to December.
         /// </summary>
         public static string monthFull_12 {
             get {
@@ -232,7 +232,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Февруари.
+        ///   Looks up a localized string similar to February.
         /// </summary>
         public static string monthFull_2 {
             get {
@@ -241,7 +241,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Март.
+        ///   Looks up a localized string similar to March.
         /// </summary>
         public static string monthFull_3 {
             get {
@@ -250,7 +250,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Април.
+        ///   Looks up a localized string similar to April.
         /// </summary>
         public static string monthFull_4 {
             get {
@@ -259,7 +259,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Май.
+        ///   Looks up a localized string similar to May.
         /// </summary>
         public static string monthFull_5 {
             get {
@@ -268,7 +268,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Юни.
+        ///   Looks up a localized string similar to June.
         /// </summary>
         public static string monthFull_6 {
             get {
@@ -277,7 +277,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Юли.
+        ///   Looks up a localized string similar to July.
         /// </summary>
         public static string monthFull_7 {
             get {
@@ -286,7 +286,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Август.
+        ///   Looks up a localized string similar to August.
         /// </summary>
         public static string monthFull_8 {
             get {
@@ -295,7 +295,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Септември.
+        ///   Looks up a localized string similar to September.
         /// </summary>
         public static string monthFull_9 {
             get {
@@ -304,7 +304,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Затвори.
+        ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string popup_Cancel {
             get {
@@ -313,7 +313,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ОК.
+        ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string popup_OK {
             get {
@@ -322,7 +322,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Какво значи:.
+        ///   Looks up a localized string similar to Meaning:.
         /// </summary>
         public static string send_Description {
             get {
@@ -340,7 +340,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Етимология (произход):.
+        ///   Looks up a localized string similar to Ethimology (origin):.
         /// </summary>
         public static string send_Ethimology {
             get {
@@ -349,7 +349,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Примери:.
+        ///   Looks up a localized string similar to Examples:.
         /// </summary>
         public static string send_Example {
             get {
@@ -358,7 +358,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Име/псевдоним:.
+        ///   Looks up a localized string similar to Name/nickname:.
         /// </summary>
         public static string send_Name {
             get {
@@ -367,7 +367,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Гнездо:.
+        ///   Looks up a localized string similar to Nest:.
         /// </summary>
         public static string send_Nest {
             get {
@@ -376,7 +376,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Вашият сайт:.
+        ///   Looks up a localized string similar to Your web-site:.
         /// </summary>
         public static string send_URL {
             get {
@@ -385,7 +385,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Думата:.
+        ///   Looks up a localized string similar to The word:.
         /// </summary>
         public static string send_Word {
             get {
@@ -394,7 +394,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Коментирай.
+        ///   Looks up a localized string similar to Comment.
         /// </summary>
         public static string sendComment {
             get {
@@ -403,7 +403,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Изпрати на email....
+        ///   Looks up a localized string similar to Send to email....
         /// </summary>
         public static string share_Email_Desc {
             get {
@@ -412,7 +412,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Благодарим ви!.
+        ///   Looks up a localized string similar to Thank You!.
         /// </summary>
         public static string thankYou {
             get {
@@ -421,7 +421,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Понеделник.
+        ///   Looks up a localized string similar to Monday.
         /// </summary>
         public static string weekday_1 {
             get {
@@ -430,7 +430,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Вторник.
+        ///   Looks up a localized string similar to Tuesday.
         /// </summary>
         public static string weekday_2 {
             get {
@@ -439,7 +439,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Сряда.
+        ///   Looks up a localized string similar to Wednesday.
         /// </summary>
         public static string weekday_3 {
             get {
@@ -448,7 +448,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Четвъртък.
+        ///   Looks up a localized string similar to Thursday.
         /// </summary>
         public static string weekday_4 {
             get {
@@ -457,7 +457,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Петък.
+        ///   Looks up a localized string similar to Friday.
         /// </summary>
         public static string weekday_5 {
             get {
@@ -466,7 +466,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Събота.
+        ///   Looks up a localized string similar to Saturday.
         /// </summary>
         public static string weekday_6 {
             get {
@@ -475,7 +475,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Неделя.
+        ///   Looks up a localized string similar to Sunday.
         /// </summary>
         public static string weekday_7 {
             get {
@@ -484,7 +484,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Етимология.
+        ///   Looks up a localized string similar to Ethimology.
         /// </summary>
         public static string word_Ethimology {
             get {
@@ -493,7 +493,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Примери.
+        ///   Looks up a localized string similar to Examples.
         /// </summary>
         public static string word_Example {
             get {
@@ -502,7 +502,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Твоят коментар:.
+        ///   Looks up a localized string similar to Your comment:.
         /// </summary>
         public static string your_Comment {
             get {
@@ -511,7 +511,7 @@ namespace Neolog {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Име/псевдоним:.
+        ///   Looks up a localized string similar to Name/nickname: .
         /// </summary>
         public static string your_CommentAuhor {
             get {
