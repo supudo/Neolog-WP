@@ -270,4 +270,10 @@
   <data name="your_CommentAuhor" xml:space="preserve">
     <value>Име/псевдоним:</value>
   </data>
+  <data name="urlError" xml:space="preserve">
+    <value>URL-то на автора е неправилно.</value>
+  </data>
+  <data name="generalError" xml:space="preserve">
+    <value>Възникна грешка. Моля, опитайте пак.</value>
+  </data>
 </root>

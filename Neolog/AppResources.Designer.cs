@@ -115,6 +115,15 @@ namespace Neolog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured. Please, try again later..
+        /// </summary>
+        public static string generalError {
+            get {
+                return ResourceManager.GetString("generalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
         public static string loading {
@@ -417,6 +426,15 @@ namespace Neolog {
         public static string thankYou {
             get {
                 return ResourceManager.GetString("thankYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The author URL is not correctly formatted..
+        /// </summary>
+        public static string urlError {
+            get {
+                return ResourceManager.GetString("urlError", resourceCulture);
             }
         }
         

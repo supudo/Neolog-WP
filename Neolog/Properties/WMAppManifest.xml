@@ -24,7 +24,7 @@
     <Tokens>
       <PrimaryToken TokenID="NeologToken" TaskName="_default">
         <TemplateType5>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Images\Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Images\ApplicationTileIcon.png</BackgroundImageURI>
           <Count>0</Count>
           <Title>Neolog</Title>
         </TemplateType5>

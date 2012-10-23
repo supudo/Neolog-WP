@@ -3,12 +3,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--Application Resources-->
     <Application.Resources>
-        <nl:OfferDateShortConverter xmlns:nl="clr-namespace:Neolog.Utilities.Converters" x:Key="OfferDateShortConverter" />
-        <nl:OfferDateLongConverter xmlns:nl="clr-namespace:Neolog.Utilities.Converters" x:Key="OfferDateLongConverter" />
+        <local:LocalizedStrings xmlns:local="clr-namespace:Neolog" x:Key="LocalizedStrings" />
+        <nl:WordDateShortConverter xmlns:nl="clr-namespace:Neolog.Utilities.Converters" x:Key="WordDateShortConverter" />
+        <nl:WordDateLongConverter xmlns:nl="clr-namespace:Neolog.Utilities.Converters" x:Key="WordDateLongConverter" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

@@ -46,21 +46,28 @@ namespace Neolog.Views
 
         private void post_Click(object sender, EventArgs e)
         {
-            if (this.syncManager == null)
-                this.syncManager = new Synchronization();
-            this.syncManager.SyncError += new Synchronization.EventHandler(syncManager_SyncError);
-            this.syncManager.SyncComplete += new Synchronization.EventHandler(syncManager_SyncComplete);
-
-            if (!this.txtAuthor.Text.Trim().Equals("") && !this.txtComment.Text.Trim().Equals(""))
+            try
             {
-                Dictionary<string, string> postParams = new Dictionary<string, string>();
-                postParams.Add("w", "" + this.wordID);
-                postParams.Add("author", this.txtAuthor.Text);
-                postParams.Add("comment", this.txtComment.Text);
-                this.syncManager.DoSendComment(postParams);
+                if (this.syncManager == null)
+                    this.syncManager = new Synchronization();
+                this.syncManager.SyncError += new Synchronization.EventHandler(syncManager_SyncError);
+                this.syncManager.SyncComplete += new Synchronization.EventHandler(syncManager_SyncComplete);
+
+                if (!this.txtAuthor.Text.Trim().Equals("") && !this.txtComment.Text.Trim().Equals(""))
+                {
+                    Dictionary<string, string> postParams = new Dictionary<string, string>();
+                    postParams.Add("w", "" + this.wordID);
+                    postParams.Add("author", this.txtAuthor.Text);
+                    postParams.Add("comment", this.txtComment.Text);
+                    this.syncManager.DoSendComment(postParams);
+                }
+                else
+                    MessageBox.Show(AppResources.comment_Empty);
             }
-            else
-                MessageBox.Show(AppResources.comment_Empty);
+            catch
+            {
+                MessageBox.Show(AppResources.generalError);
+            }
         }
 
         void syncManager_SyncComplete(object sender, NeologEventArgs e)
@@ -70,8 +77,15 @@ namespace Neolog.Views
 
         void syncManager_SyncError(object sender, NeologEventArgs e)
         {
-            if (e.IsError)
-                MessageBox.Show(e.ErrorMessage);
+            try
+            {
+                if (e.IsError)
+                    MessageBox.Show(e.ErrorMessage);
+            }
+            catch
+            {
+                MessageBox.Show(AppResources.generalError);
+            }
         }
     }
 }

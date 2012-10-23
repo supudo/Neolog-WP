@@ -114,8 +114,8 @@
     <Compile Include="Utilities\Controls\LoadingPopup.xaml.cs">
       <DependentUpon>LoadingPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\Converters\OfferDateLongConverter.cs" />
-    <Compile Include="Utilities\Converters\OfferDateShortConverter.cs" />
+    <Compile Include="Utilities\Converters\WordDateLongConverter.cs" />
+    <Compile Include="Utilities\Converters\WordDateShortConverter.cs" />
     <Compile Include="Utilities\Extensions\RichTextBoxExtensions.cs" />
     <Compile Include="Utilities\NeologBasePage.cs" />
     <Compile Include="Utilities\NeologEventArgs.cs" />
@@ -221,6 +221,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Images\logo.png" />
+    <Content Include="Images\ApplicationTileIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Menu\tb-back.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -267,7 +270,9 @@
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
-    <Resource Include="Images\ApplicationIcon.png" />
+    <Content Include="Images\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup />

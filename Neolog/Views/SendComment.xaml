@@ -29,9 +29,9 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
-                <TextBlock Name="lblComment" Text="Comment" Foreground="White" Margin="0" />
-                <TextBox Name="txtAuthor" HorizontalAlignment="Left"  Width="456" BorderBrush="#BF000000" Margin="0" />
                 <TextBlock Name="lblAuthor" Text="Author" Foreground="White" Margin="0" />
+                <TextBox Name="txtAuthor" HorizontalAlignment="Left"  Width="456" BorderBrush="#BF000000" Margin="0" />
+                <TextBlock Name="lblComment" Text="Comment" Foreground="White" Margin="0" />
             </StackPanel>
             <TextBox Name="txtComment" HorizontalAlignment="Left"  Width="456" BorderBrush="#BF000000" Margin="0,124,0,0" />
         </Grid>

@@ -36,7 +36,14 @@ namespace Neolog
 
         public void startSync()
         {
-            this.syncManager.StartSync();
+            try
+            {
+                this.syncManager.StartSync();
+            }
+            catch
+            {
+                MessageBox.Show(AppResources.generalError);
+            }
         }
 
         void syncManager_SyncComplete(object sender, NeologEventArgs e)

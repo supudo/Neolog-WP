@@ -65,9 +65,11 @@ namespace Neolog.Utilities
 
         void splashScreen_SplashError(object sender, NeologEventArgs e)
         {
+            this.popup.IsOpen = false;
             if (e.IsError)
                 MessageBox.Show(e.ErrorMessage);
-            this.ApplicationBar.IsVisible = true;
+            if (this.ApplicationBar != null)
+                this.ApplicationBar.IsVisible = true;
             this.Dispatcher.BeginInvoke(() =>
             {
                 SyncError(this, new NeologEventArgs(e.IsError, e.ErrorMessage, ""));

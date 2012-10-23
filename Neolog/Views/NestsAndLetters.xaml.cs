@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Neolog.Utilities;
@@ -26,6 +27,10 @@ namespace Neolog.Views
         void Nests_Loaded(object sender, RoutedEventArgs e)
         {
             base.BuildApplicationBar();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
             this.nlPanorama.Title = AppResources.appName;
             this.panNests.Header = AppResources.menu_Nests;
             this.panLetters.Header = AppResources.menu_Letters;

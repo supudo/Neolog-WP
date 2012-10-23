@@ -21,11 +21,12 @@ namespace Neolog
         {
             InitializeComponent();
             this.LayoutRoot.Background = new SolidColorBrush(AppSettings.BackgroundColor);
-            base.SyncComplete += new NeologBasePage.EventHandler(MainPage_SyncComplete);
+            base.SyncComplete += new NeologBasePage.EventHandler(syncComplete);
+            base.SyncError += new EventHandler(syncComplete);
             base.DoSync();
         }
 
-        void MainPage_SyncComplete(object sender, NeologEventArgs e)
+        void syncComplete(object sender, NeologEventArgs e)
         {
             base.BuildApplicationBar();
             NavigationService.Navigate(new Uri("/Views/NestsAndLetters.xaml", UriKind.Relative));

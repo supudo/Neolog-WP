@@ -5,13 +5,13 @@ using System.Windows.Data;
 
 namespace Neolog.Utilities.Converters
 {
-    public class OfferDateLongConverter : IValueConverter
+    public class WordDateShortConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
                 return null;
-            return AppSettings.DoLongDate((DateTime)value);
+            return AppSettings.DoShortDate((DateTime)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

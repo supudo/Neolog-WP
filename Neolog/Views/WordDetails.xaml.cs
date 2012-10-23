@@ -100,9 +100,19 @@ namespace Neolog.Views
 
         void txtURL_Click(object sender, RoutedEventArgs e)
         {
-            WebBrowserTask webbrowser = new WebBrowserTask();
-            webbrowser.Uri = new Uri(this.currentWord.AddedByUrl);
-            webbrowser.Show();
+            try
+            {
+                string url = this.currentWord.AddedByUrl;
+                if (!url.StartsWith("http://"))
+                    url = "http://" + url;
+                WebBrowserTask webbrowser = new WebBrowserTask();
+                webbrowser.Uri = new Uri(url);
+                webbrowser.Show();
+            }
+            catch
+            {
+                MessageBox.Show(AppResources.urlError);
+            }
         }
 
         #region Sync

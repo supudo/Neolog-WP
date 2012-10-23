@@ -270,4 +270,10 @@
   <data name="your_CommentAuhor" xml:space="preserve">
     <value>Name/nickname:</value>
   </data>
+  <data name="urlError" xml:space="preserve">
+    <value>The author URL is not correctly formatted.</value>
+  </data>
+  <data name="generalError" xml:space="preserve">
+    <value>Error occured. Please, try again later.</value>
+  </data>
 </root>
