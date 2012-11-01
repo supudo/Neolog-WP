@@ -38,7 +38,7 @@ namespace Neolog.Utilities.Network
         #region Helpers
         private bool hasConnection()
         {
-            return false;// NetworkInterface.GetIsNetworkAvailable();
+            return NetworkInterface.GetIsNetworkAvailable();
         }
         #endregion
 
